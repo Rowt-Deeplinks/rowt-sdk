@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { DeepLinkNativeModule } from './index';
+import { DeepLinkNativeModule } from './DeepLinkManager';
 
 export function useDeepLink(handler: (url: string) => void) {
   const handlerRef = useRef(handler);

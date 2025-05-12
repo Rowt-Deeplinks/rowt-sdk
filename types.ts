@@ -1,11 +1,10 @@
-// Add these types to your existing types.ts file
-
 export interface DeepLinkEvent {
   url: string;
 }
 
 export interface ParsedDeepLink {
   scheme: string;
+  host: string;
   path: string;
   segments: string[];
   params: Record<string, string>;
@@ -14,4 +13,10 @@ export interface ParsedDeepLink {
 
 export interface DeepLinkSubscription {
   remove(): void;
+}
+
+export interface RowtConfig {
+  apiKey?: string;
+  baseURL?: string;
+  debug?: boolean;
 }

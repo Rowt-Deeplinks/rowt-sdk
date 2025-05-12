@@ -2,6 +2,8 @@ import * as Linking from 'expo-linking';
 import { DeepLinkModule } from './linking';
 import { useDeepLink, useExpoDeepLink } from './hooks';
 
+
+
 export { useDeepLink, useExpoDeepLink };
 
 export class ExpoRowtConsole {
