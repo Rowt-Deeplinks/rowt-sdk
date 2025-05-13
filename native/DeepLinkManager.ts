@@ -1,4 +1,9 @@
-import { NativeModules, NativeEventEmitter, Platform, EmitterSubscription } from 'react-native';
+import {
+  NativeModules,
+  NativeEventEmitter,
+  Platform,
+  EmitterSubscription,
+} from "react-native";
 
 interface DeepLinkEvent {
   url: string;
@@ -12,7 +17,9 @@ const { RowtDeepLink } = NativeModules;
 
 // Check if native module is available
 if (!RowtDeepLink) {
-  console.warn('RowtDeepLink native module is not available. Deep link handling will not work.');
+  console.warn(
+    "RowtDeepLink native module is not available. Deep link handling will not work.",
+  );
 }
 
 class DeepLinkManager extends NativeEventEmitter {
@@ -27,19 +34,22 @@ class DeepLinkManager extends NativeEventEmitter {
     if (!this.module) {
       return null;
     }
-    
+
     try {
       return await this.module.getInitialDeepLink();
     } catch (error) {
-      console.error('Error getting initial deep link:', error);
+      console.error("Error getting initial deep link:", error);
       return null;
     }
   }
 
   addDeepLinkListener(callback: (url: string) => void): EmitterSubscription {
-    return this.addListener('onRowtDeepLinkReceived', (event: DeepLinkEvent) => {
-      callback(event.url);
-    });
+    return this.addListener(
+      "onRowtDeepLinkReceived",
+      (event: DeepLinkEvent) => {
+        callback(event.url);
+      },
+    );
   }
 }
 

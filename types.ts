@@ -20,3 +20,16 @@ export interface RowtConfig {
   baseURL?: string;
   debug?: boolean;
 }
+
+export interface CreateLinkDTO {
+  projectId: string;
+  apiKey: string;
+  url: string;
+  expiration?: Date;
+  title?: string;
+  description?: string;
+  imageUrl?: string;
+  fallbackUrlOverride?: string;
+  additionalMetadata?: Record<string, any>;
+  properties?: Record<string, any>;
+}

@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
-import * as Linking from 'expo-linking';
+import { useEffect, useRef } from "react";
+import * as Linking from "expo-linking";
 
 export function useDeepLink(handler: (url: string) => void) {
   const handlerRef = useRef(handler);
-  
+
   // Update ref to latest handler
   useEffect(() => {
     handlerRef.current = handler;
@@ -18,7 +18,7 @@ export function useDeepLink(handler: (url: string) => void) {
     });
 
     // Listen for new URLs
-    const subscription = Linking.addEventListener('url', (event) => {
+    const subscription = Linking.addEventListener("url", (event) => {
       handlerRef.current(event.url);
     });
 
@@ -32,11 +32,11 @@ export function useDeepLink(handler: (url: string) => void) {
 export function useExpoDeepLink(handler: (url: string) => void) {
   const url = Linking.useURL();
   const handlerRef = useRef(handler);
-  
+
   useEffect(() => {
     handlerRef.current = handler;
   }, [handler]);
-  
+
   useEffect(() => {
     if (url) {
       handlerRef.current(url);

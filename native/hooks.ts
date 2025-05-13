@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
-import { DeepLinkNativeModule } from './DeepLinkManager';
+import { useEffect, useRef } from "react";
+import { DeepLinkNativeModule } from "./DeepLinkManager";
 
 export function useDeepLink(handler: (url: string) => void) {
   const handlerRef = useRef(handler);
-  
+
   // Update ref to latest handler to avoid stale closures
   useEffect(() => {
     handlerRef.current = handler;
@@ -11,7 +11,7 @@ export function useDeepLink(handler: (url: string) => void) {
 
   useEffect(() => {
     if (!DeepLinkNativeModule) {
-      console.warn('Deep link native module not available');
+      console.warn("Deep link native module not available");
       return;
     }
 

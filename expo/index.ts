@@ -1,8 +1,6 @@
-import * as Linking from 'expo-linking';
-import { DeepLinkModule } from './linking';
-import { useDeepLink, useExpoDeepLink } from './hooks';
-
-
+import * as Linking from "expo-linking";
+import { DeepLinkModule } from "./linking";
+import { useDeepLink, useExpoDeepLink } from "./hooks";
 
 export { useDeepLink, useExpoDeepLink };
 
@@ -14,7 +12,7 @@ export class ExpoRowtConsole {
   }
 
   static addDeepLinkListener(handler: (url: string) => void) {
-    return Linking.addEventListener('url', (event) => {
+    return Linking.addEventListener("url", (event) => {
       handler(event.url);
     });
   }
@@ -23,11 +21,11 @@ export class ExpoRowtConsole {
     // Same implementation as before
     const parsed = Linking.parse(url);
     return {
-      scheme: parsed.scheme || '',
-      hostname: parsed.hostname || '',
-      path: parsed.path || '',
+      scheme: parsed.scheme || "",
+      hostname: parsed.hostname || "",
+      path: parsed.path || "",
       queryParams: parsed.queryParams || {},
-      segments: (parsed.path || '').split('/').filter(Boolean),
+      segments: (parsed.path || "").split("/").filter(Boolean),
     };
   }
 
