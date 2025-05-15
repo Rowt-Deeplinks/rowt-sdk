@@ -1,6 +1,6 @@
 {
   "name": "rowt-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.ts",
   "types": "index.ts",
   "files": [
@@ -8,7 +8,13 @@
     "expo"
   ],
   "description": "SDK for using Rowt Deeplinking with Expo",
-  "keywords": ["rowt", "sdk", "react-native", "expo", "deeplinking"],
+  "keywords": [
+    "rowt",
+    "sdk",
+    "react-native",
+    "expo",
+    "deeplinking"
+  ],
   "author": "Chris McCully",
   "license": "MIT",
   "dependencies": {
