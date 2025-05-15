@@ -12,9 +12,7 @@ const isExpo = (() => {
 
 // Import the correct implementation based on platform
 // This is the key - we're importing different implementations based on the environment
-const DeepLinkImplementation = isExpo
-  ? require('./expo').ExpoRowtConsole
-  : require('./native').NativeRowtConsole;
+const DeepLinkImplementation = require('./expo').ExpoRowtConsole
 
 export interface RowtConfig {
   apiKey?: string;

@@ -20,9 +20,7 @@ export const useDeepLink = isExpo
   : require("./native/hooks").useDeepLink;
 
 // Optional: Export platform-specific implementations for advanced users
-export const PlatformImplementation = isExpo
-  ? require("./expo").ExpoRowtConsole
-  : require("./native").NativeRowtConsole;
+export const PlatformImplementation = require("./expo").ExpoRowtConsole
 
 // Export platform detection utility
 export const isExpoEnvironment = () => isExpo;
